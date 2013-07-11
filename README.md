@@ -19,19 +19,18 @@ HTML Example code:
 
 Javascript Example code for the above HTML:
 
-$(".stepUpSlider").numericalstepper
-stepUp : ".increase",  			//ID or Class of incrementing element, required property
-stepDown : ".decrease",				//ID or class of decrementing element, required property
-displayObject : ".stepUpCounter",	//ID or Class of container where the increment should be displayed, required property
-start : 10,		//default value is 50
-stepHandler: function(ns){			//Callback function to handle get and set functionality.
-	$(".stepUpCounter").text(ns.value);
-},
-step: 1,		//assign the number for increment/decrement.
-min : 20,		//default value is 0
-max : 100,	//default value is 100
-eventHandler : "mousedown"		//To override mouse action. Default value is "click". allowed values mousedown/click 
-
+$(".stepUpSlider").numericalstepper({
+	stepUp : ".increase",				//ID or Class of incrementing element, required property
+	stepDown : ".decrease",				//ID or class of decrementing element, required property
+	displayObject : ".stepUpCounter",	//ID or Class of container where the increment should be displayed, required property
+	start : 10,		//default value is 50
+	stepHandler: function(ns){			//Callback function to handle get and set functionality.
+		$(".stepUpCounter").text(ns.value);
+	},
+	step: 1,		//assign the number for increment/decrement.
+	min : 20,		//default value is 0
+	max : 100,	//default value is 100
+	eventHandler : "mousedown"		//To override mouse action. Default value is "click". allowed values mousedown/click 
 })
 
 Note: This plugin requires Jquery version 1.8 and above.
