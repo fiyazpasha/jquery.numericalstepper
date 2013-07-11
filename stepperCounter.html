@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Examples: jquery.numericalstepper.js implementation</title>
+	<style type="text/css">
+		body {margin:0; padding:0; text-align:center; font-family:'arial', verdana;}
+		#numericalstepper { text-align:left; }
+		#container {width:1011px; margin:0 auto; padding-bottom:30px; }
+		p em {background:#FFC;}
+		p.code{background:#dedede; padding:20px 15px;}
+		p.code span.tab {display: inline-block; padding-left:40px;}
+		.col p.code{background: none; font-size:12px; padding:0;}
+		.col p.code em{background: none;}
+		.examplecontainer:before, .examplecontainer:after {display:table; content: "";}
+		.examplecontainer:after{clear:both;}
+		.examplecontainer {background:url(images/theme2_main_bg.png) repeat scroll 0 0; color:#FFF; padding:15px;}
+		.examplecontainer .col{width:31%; float: left; padding-right:15px;}
+		.stepUpSlider:before, .stepUpSlider:after, .stepUpSlider1:before, .stepUpSlider1:after,#stepUpSlider2:before, #stepUpSlider2:after  {display:table; content: "";}
+		.stepUpSlider:after, .stepUpSlider1:after, #stepUpSlider2:after {clear:both;}
+		.stepUpSlider {height:145px; }
+		.stepUpSlider .theme1 {background:url(images/theme_1_btns_sprite.png) no-repeat scroll 0 0; height:41px; width:41px; text-indent: -99999px; outline:none;}
+		.stepUpSlider .increase.theme1{ margin-left:13px; cursor:pointer; }
+		.stepUpSlider .inputContainer.theme1{background:url(images/theme_1_bg.png) no-repeat scroll 0 0; width:48px; height:38px; text-indent: 0; padding:16px 0 0 21px; font-size:20px;  color:#777;}
+		.stepUpSlider .decrease.theme1{ margin-left:13px; background-position: 0 -72px; cursor:pointer; }
+		.stepUpSlider1 {background:url(images/theme_2_bg.png) no-repeat scroll 0 0; height:145px;}
+		.stepUpSlider1 .theme2 {background:url(images/theme_2_btns_sprite.png) no-repeat scroll 0 0; height:13px; width:20px; text-indent: -99999px; outline:none;}
+		.stepUpSlider1 .increase.theme2{ margin-bottom:3px; cursor:pointer; }
+		.stepUpSlider1 .inputContainer.theme2{background:none; text-indent: 0; padding:16px 0 0 21px; font-size:20px; float:left; width:52px; margin-left:10px; height:59px;}
+		.stepUpSlider1 .inputContainer.theme2 input{background:none; text-indent: 0; padding:0; font-size:20px; color:#39a8e1; border:0; width:40px; }
+		.stepUpSlider1 .decrease.theme2{ margin-left:0px; background-position: 0 -21px; cursor:pointer; }
+		.stepUpSlider1 .example2Handles{ float: left;  height: 59px; padding-left: 10px;  padding-top: 15px; width: 20px; }
+		#stepUpSlider2 {background:url(images/theme_3_bg.png) no-repeat scroll 0 0; color:#777; height:145px;}
+		#stepUpSlider2 .theme3 {background:url(images/theme_3_btns_sprite.png) no-repeat scroll 0 0; height:42px; width:48px; text-indent: -99999px; outline:none;}
+		#stepUpSlider2 .increase.theme3{ margin-bottom:3px; cursor:pointer; float:left; }
+		#stepUpSlider2 .inputContainer.theme3{background:none; text-indent: 0; padding:16px 0 0 0px; font-size:20px; width:52px; margin-left:15px; height:35px;}
+		#stepUpSlider2 .inputContainer.theme3 textarea{background:none; text-indent: 0; padding:0; font-size:20px; color:#777; border:0; width:80px; height:27px; text-align: center; }
+		#stepUpSlider2 .decrease.theme3{ margin-left:0px; background-position: -48px 0px; cursor:pointer; float:left; }
+		#stepUpSlider2 .example2Handles{ height: 42px; padding-left: 7px;  padding-top: 3px; width: 200px}
+		.codeFont {font-size: 12px;}
+	</style>
+</head>
+<body id="numericalstepper">
+	<div id="container">
+		<h1>Example usage of jquery.numericalstepper.js</h1>
+		<p>The plugin provides a method called <em>numericalstepper</em> which is invoked on a container element. To download <a href="download/jquery.numericalstepper.js.zip" target="_blank">click here</a></p> 
+		<p class="code">$(".stepUpSlider").<em>numericalstepper</em>({<br/>
+			<span class="tab">&nbsp;</span>stepUp : ".increase",<br/>
+			<span class="tab">&nbsp;</span>stepDown : ".decrease",<br/>
+			<span class="tab">&nbsp;</span>displayObject : ".stepUpCounter",<br/>
+			<span class="tab">&nbsp;</span>start : 10,<br/>
+			<span class="tab">&nbsp;</span>stepHandler: function(ns){<br/>
+			<span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>$(".stepUpCounter").text(ns.value);<br/>
+			<span class="tab">&nbsp;</span>},<br/>
+			<span class="tab">&nbsp;</span>step: 1,<br/>
+			<span class="tab">&nbsp;</span>min : 20,<br/>
+			<span class="tab">&nbsp;</span>max : 100,<br/>
+			<span class="tab">&nbsp;</span>eventHandler : "mousedown"<br/>
+
+		})</p>
+		<div class="examplecontainer">
+			<div class="col basic">
+				<h3>onClick mouse event<br/>(Basic implementation)</h3>
+				<div class="stepUpSlider">
+					<div class="increase theme1">Increase</div>
+					<div class="inputContainer theme1"><div class="stepUpCounter"></div></div>
+					<div class="decrease theme1">Decrease</div>
+				</div>
+				<h4 class="codeFont">HTML</h4>
+				<p class="codeFont">
+					&lt;div class="stepUpSlider"&gt;<br/>
+						&lt;div class="increase theme1"&gt;Increase&lt;/div&gt;<br/>
+						&lt;div class="inputContainer theme1"&gt;&lt;div class="stepUpCounter"&gt;&lt;/div&gt;&lt;/div&gt;<br/>
+						&lt;div class="decrease theme1"&gt;Decrease&lt;/div&gt;<br/>
+					&lt;/div&gt;<br/>
+				</p>
+				<h4 class="codeFont">Javascript Code: </h4>
+				<p class="code codeFont">$(".stepUpSlider").<em>numericalstepper</em>({<br/>
+					<span class="tab">&nbsp;</span>stepUp : ".increase",<br/>
+					<span class="tab">&nbsp;</span>stepDown : ".decrease",<br/>
+					<span class="tab">&nbsp;</span>displayObject : ".stepUpCounter",<br/>
+					<span class="tab">&nbsp;</span>start : 10<br/>
+
+				})</p>
+			</div>
+			<div class="col">
+				<h3>onClick mouse event<br/>With form element: </h3>
+				<div class="stepUpSlider1">
+					<div class="inputContainer theme2"><input class="stepUpCounter1" type="text" value=""/></div>
+					<div class="example2Handles">
+						<div class="increase theme2">Increase</div>
+						<div class="decrease theme2">Decrease</div>
+					</div>
+				</div>
+				<h4 class="codeFont">HTML</h4>
+				<p class="codeFont">
+					&lt;div class="stepUpSlider1"&gt;<br/>
+						&lt;div class="inputContainer theme2"&gt;<br/>&lt;input class="stepUpCounter1" type="text" value=""/&gt;<br/>&lt;/div&gt;<br/>
+						&lt;div class="example2Handles"&gt;<br/>
+							&lt;div class="increase theme2"&gt;<br/>Increase&lt;/div&gt;<br/>
+							&lt;div class="decrease theme2"&gt;<br/>Decrease&lt;/div&gt;<br/>
+						&lt;/div&gt;<br/>
+					&lt;/div&gt;<br/>
+				</p>
+				<h4 class="codeFont">Javascript Code: </h4>
+				<p class="code codeFont">$(".stepUpSlider1").<em>numericalstepper</em>({<br/>
+					<span class="tab">&nbsp;</span>stepUp : ".increase",<br/>
+					<span class="tab">&nbsp;</span>stepDown : ".decrease",<br/>
+					<span class="tab">&nbsp;</span>displayObject : ".stepUpCounter1",<br/>
+					<span class="tab">&nbsp;</span>start : 50,<br/>
+					<span class="tab">&nbsp;</span>step: 10,<br/>
+					})
+				</p>
+			</div>
+			<div class="col">
+				<h3>Mousedown event<br/>With Callback handling</h3>
+				<div id="stepUpSlider2">
+					<div class="inputContainer theme3"><textarea row=1 class="stepUpCounter2"></textarea></div>
+					<div class="example2Handles">
+						<div class="increase theme3">Increase</div>
+						<div class="decrease theme3">Decrease</div>
+					</div>
+				</div>
+				<h4 class="codeFont">HTML</h4>
+				<p class="codeFont">
+					&lt;div id="stepUpSlider2"&gt;<br/>
+						&lt;div class="inputContainer theme3"&gt;<br/>&lt;textarea row=1 class="stepUpCounter2"&gt;&lt;/textarea&gt;<br/>&lt;/div&gt;<br/>
+						&lt;div class="example2Handles"&gt;<br/>
+							&lt;div class="increase theme3"&gt;<br/>Increase&lt;/div&gt;<br/>
+							&lt;div class="decrease theme3"&gt;<br/>Decrease&lt;/div&gt;<br/>
+						&lt;/div&gt;<br/>
+					&lt;/div&gt;<br/>
+				</p>
+				<h4 class="codeFont">Javascript Code: </h4>
+				<p class="code codeFont">$("#stepUpSlider2").<em>numericalstepper</em>({<br/>
+					<span class="tab">&nbsp;</span>stepUp : ".increase",<br/>
+					<span class="tab">&nbsp;</span>stepDown : ".decrease",<br/>
+					<span class="tab">&nbsp;</span>displayObject : ".stepUpCounter2",<br/>
+					<span class="tab">&nbsp;</span>start : 30,<br/>
+					<span class="tab">&nbsp;</span>stepHandler: function(ns){<br/>
+					<span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>$(".stepUpCounter2").text( ns.value);<br/>
+					<span class="tab">&nbsp;</span>},<br/>
+					<span class="tab">&nbsp;</span>min : 0,<br/>
+					<span class="tab">&nbsp;</span>max : 1000<br/>
+					<span class="tab">&nbsp;</span>step: 5,<br/>
+					<span class="tab">&nbsp;</span>eventHandler : "mousedown"<br/>
+				})</p>
+			</div>
+		</div>
+		<h5><em>Note: This plugin requires Jquery version 1.8 and above.</em> <br/>External link :  &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"&gt;&lt;/script&gt;<br/>Akamai Library link :  &lt;script src="http://www.akamai.com/js/jquery-min.js"&gt;&lt;/script&gt;</h5>
+	</div>
+	<script src="http://www.akamai.com/js/jquery-min.js"></script>
+	<script src="jquery.numericalstepper.js"></script>
+	<script type="text/javascript">
+
+	$(function(){
+		$(".stepUpSlider").numericalstepper({
+			stepUp : ".increase",				//ID or Class of incrementing element, required property
+			stepDown : ".decrease",				//ID or class of decrementing element, required property
+			displayObject : ".stepUpCounter",	//ID or Class of container where the increment should be displayed, required property
+			start : 10		//default value is 50
+
+		})
+		$(".stepUpSlider1").numericalstepper({
+			stepUp : ".increase",				//ID or Class of incrementing element, required property
+			stepDown : ".decrease",				//ID or class of decrementing element, required property
+			displayObject : ".stepUpCounter1",	//ID or Class of container where the increment should be displayed, required property
+			start : 50,		//default value is 50
+			step: 10		//increases the stepper with this number.
+
+		})
+		$("#stepUpSlider2").numericalstepper({
+			stepUp : ".increase",				//ID or Class of incrementing element, required property
+			stepDown : ".decrease",				//ID or class of decrementing element, required property
+			displayObject : ".stepUpCounter2",	//ID or Class of container where the increment should be displayed, required property
+			start : 30,		//default value is 50
+			stepHandler: function(ns){
+				$(".stepUpCounter2").val(ns.value);
+			},
+			step: 5,		//increases the stepper with this number.
+			min : 0,		//default value is 0
+			max : 1000,		//default value is 100
+			eventHandler : "mousedown"		//Default value is "click"
+
+		})
+
+	})
+	</script>
+</body>
+</html>
