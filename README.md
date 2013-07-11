@@ -9,13 +9,13 @@ The plugin provides a method called numericalstepperwhich is invoked on a contai
 All default values are explained below
 HTML Example code:
 
-<div class="stepUpSlider1">
-<div class="inputContainer theme2"><input class="stepUpCounter1" type="text" value=""/></div>
-<div class="example2Handles">
-<div class="increase theme2">Increase</div>
-<div class="decrease theme2">Decrease</div>
-</div>
-</div>
+&lt;div class="stepUpSlider1"&gt;<br/>
+	&lt;div class="inputContainer theme2"&gt;<br/>&lt;input class="stepUpCounter1" type="text" value=""/&gt;<br/>&lt;/div&gt;<br/>
+	&lt;div class="example2Handles"&gt;<br/>
+		&lt;div class="increase theme2"&gt;<br/>Increase&lt;/div&gt;<br/>
+		&lt;div class="decrease theme2"&gt;<br/>Decrease&lt;/div&gt;<br/>
+	&lt;/div&gt;<br/>
+&lt;/div&gt;<br/>
 
 Javascript Example code for the above HTML:
 
