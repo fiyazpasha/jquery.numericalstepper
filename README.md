@@ -34,4 +34,4 @@ $(".stepUpSlider").numericalstepper({<br/>
 })<br/>
 
 Note: This plugin requires Jquery version 1.8 and above.
-External link :  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+External link : &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"&gt;&lt;/script&gt;
